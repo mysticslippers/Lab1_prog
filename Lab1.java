@@ -70,16 +70,16 @@ public class Tasks {
         for (int i = 0; i < MinimumValue; i++) {  //Вывод 3-его массива
             for (int j = 0; j < MaximumValue; j++) {
                 String answer = String.valueOf(d[i][j]);
-                if(answer.equals("NaN")){
+                if(answer.equals("NaN")){ //Если надо заменить NaN-ы на что-нибудь.
                     answer = "0.00";
                 }
                 else{
                     answer = String.valueOf(BigDecimal.valueOf(d[i][j]).setScale(2, RoundingMode.DOWN));
-                    if(answer.length() > 6){
+                    if(answer.length() > 5){
                         answer = "0.00";
                     }
                 }
-                System.out.print(answer + " ");
+                System.out.print(answer + "\t");
             }
             System.out.println();
         }
