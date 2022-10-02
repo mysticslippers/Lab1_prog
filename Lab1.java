@@ -7,7 +7,7 @@
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 
-public class Tasks {
+public class Lab1{
 
     static void FillingFirstArray(short[] arr, short MaximumValue) {
         short tmp = 21;
