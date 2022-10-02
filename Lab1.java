@@ -10,15 +10,12 @@ import java.math.RoundingMode;
 public class Tasks {
 
     static void FillingFirstArray(short[] arr, short MaximumValue) {
-        for (short i = 0; i < MaximumValue; i++) {
-            if ((MaximumValue - i) % 2 != 0) {
-                arr[i] = (short) (MaximumValue - i);
+        short tmp = 21;
+        while(tmp != 0){
+            if(tmp % 2 != 0){
+                arr[MaximumValue - ((tmp + 1) / 2)] = tmp;
             }
-        }
-        for (short i = 0; i < (MaximumValue / 2); i++) {
-            short tmp = arr[i];
-            arr[i] = arr[arr.length - i - 1];
-            arr[arr.length - i - 1] = tmp;
+            tmp--;
         }
     }
 
@@ -45,9 +42,11 @@ public class Tasks {
             for (int j = 0; j < MaximumValue; j++) {
                 if (k[i] == 5) {
                     d[i][j] = (float) Math.pow(((Math.pow((0.5 * (x[j] + Fraction1)), x[j]) / (Math.cbrt(x[j]) - Math.PI))) / 3, 3);
-                } else if (k[i] == 1 || k[i] == 9 || k[i] == 11 || k[i] == 15 || k[i] == 21) {
+                }
+                else if(k[i] == 1 || k[i] == 9 || k[i] == 11 || k[i] == 15 || k[i] == 21){
                     d[i][j] = (float) Math.asin(Math.pow(Math.E, Math.cbrt(Math.pow(-Math.sin(x[j]), 2))));
-                } else {
+                }
+                else{
                     d[i][j] = (float) Math.asin(Math.pow(Math.E, Math.cbrt(-Math.abs(Math.pow(Fraction2 * (3 + Math.cbrt(x[j])), Math.exp(Math.abs(x[j])))))));
                 }
             }
@@ -71,7 +70,7 @@ public class Tasks {
             for (int j = 0; j < MaximumValue; j++) {
                 String answer = String.valueOf(d[i][j]);
                 if(answer.equals("NaN")){ //Если надо заменить NaN-ы на что-нибудь.
-                    answer = "0.00";
+                    answer = "NaN" + " ";
                 }
                 else{
                     answer = String.valueOf(BigDecimal.valueOf(d[i][j]).setScale(2, RoundingMode.DOWN));
