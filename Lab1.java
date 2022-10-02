@@ -32,10 +32,10 @@ public class Lab1{
         final short MaximumValue = 17;
 
         short[] k = new short[MinimumValue]; //Объявление и заполнение 1-ого массива.
-        Tasks.FillingFirstArray(k, MinimumValue);
+        Lab1.FillingFirstArray(k, MinimumValue);
 
         float[] x = new float[MaximumValue]; //Объявление и заполнение 2-ого массива.
-        Tasks.FillingSecondArray(x, MaximumValue);
+        Lab1.FillingSecondArray(x, MaximumValue);
 
         float[][] d = new float[MinimumValue][MaximumValue];
         for (int i = 0; i < MinimumValue; i++) {
