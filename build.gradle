@@ -1,0 +1,31 @@
+plugins {
+    id 'com.github.johnrengelman.shadow' version '5.2.0'
+}
+
+subprojects {
+    apply plugin: 'java'
+    apply plugin: 'com.github.johnrengelman.shadow'
+    repositories {
+        mavenCentral()
+    }
+}
+
+project(':lab1'){
+    apply plugin: 'application'
+    compileJava.options.encoding = 'UTF-8'
+    compileTestJava.options.encoding = 'UTF-8'
+    mainClassName = 'me.ifmo.Lab1'
+    jar {
+        manifest {
+            attributes(
+                    'Main-Class': 'me.ifmo.Lab1'
+            )
+        }
+        from {
+            configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+        }
+    }
+    tasks.withType(JavaCompile).configureEach {
+        options.encoding = 'UTF-8'
+    }
+}
